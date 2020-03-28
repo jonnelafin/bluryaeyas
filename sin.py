@@ -10,7 +10,8 @@ class bcolors:
 	OKGREEN = '\033[92m'
 	WARNING = '\033[93m'
 	FAIL = '\033[91m'
-	ENDC = '\033[0m'
+	ENDC2 = '\033[0m'
+	ENDC = ""
 	BOLD = '\033[1m'
 	UNDERLINE = '\033[4m'
 
@@ -29,10 +30,10 @@ import atexit
 
 def exit_handler():
     fsl()
-    print("Exit")
+    print("Exit" + bcolors.ENDC2)
 atexit.register(exit_handler)
 
-c = [bcolors.OKGREEN + "█" + bcolors.ENDC, bcolors.FAIL + "█" + bcolors.ENDC]
+c = [bcolors.OKGREEN + "█" + bcolors.ENDC, bcolors.WARNING + "█" + bcolors.ENDC]
 def cycle(tick):
     global c
     cls()
@@ -66,7 +67,7 @@ def cycle(tick):
             else:
                 n = str((x*tick)*(y+randint(0, t)))[0]
                 if n == "1":
-                	n = " "
+                	n = bcolors.OKBLUE + "." + bcolors.ENDC
                 elif n == "2":
                 	n = "."
                 elif n == "3":
@@ -76,7 +77,7 @@ def cycle(tick):
 #                elif n == "5":
 #                	n = "|"
                 elif n == "5":
-                	n = "+"
+                	n = bcolors.OKGREEN + "+" + bcolors.ENDC2
                 elif n == "6":
                 	n = "/"
                 elif n == "7":
@@ -88,7 +89,7 @@ def cycle(tick):
                 #n = bcolors.FAIL + "0" + bcolors.ENDC
             b = b + n
         print(b, flush=True)
-#        time.sleep(0.001 / (t + 0.075))
+        time.sleep(0.001 / (t + 0.075))
 if __name__ == "__main__":
     print("Starting...")
     tick = 0
