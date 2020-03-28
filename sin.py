@@ -60,7 +60,7 @@ def cycle(tick):
             #y = 1
             #n2 = str(math.sin(randint(0, t*2) + x + y))
             #n = str(n2[0])
-            if int(y - h / 2) == int((math.sin(x/10 + (tick*0.3))*6) * math.cos(y/-10) + math.cos(x/1.5)):
+            if int(y - h / 2) == int((math.sin(x/10 + (tick*0.3))*6) * math.cos(y/10) + math.cos(x/1.5)+randint(int(-t/10), int(t/10))):
                 #n = bcolors.OKGREEN + "1" + bcolors.ENDC
                 n = c[0]
             else:
